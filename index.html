@@ -9,8 +9,9 @@
 </head>
 <body>
     <main>
+        <!--h2{User Data For My App}+hr+article>h4.hidden+h5{sumpin simple} -->
         <div id="app">
-            <activeusers name="Jinkal" role="To play like a dependable player">
+            <activeusers name="Jinkal" role="To play like a dependable player" @shutup="calledOnParent">
                 <h4>Active user Data:</h4>
             </activeusers>
             <activeusers name="Abhi" role="To play like a dependable player">
@@ -19,11 +20,13 @@
         </div>
     </main>
     <template id="usertemplate">
-    <div>
+    <div>       
         <slot></slot>
         <p>{{ name }}</p>
         <p>{{ role }}</p>
         <hr>
+        <button v-on:click="logFromChild">Child</button>
+        <button v-on:click="passEvent">Pass Event</button>
     </div>
     </template>
     <script src="js/main.js"></script>
