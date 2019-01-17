@@ -6,29 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.0.2/vue-router.min.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+    
 </head>
 <body>
     <main>
-        <!--h2{User Data For My App}+hr+article>h4.hidden+h5{sumpin simple} -->
         <div id="app">
-            <activeusers name="Jinkal" role="To play like a dependable player" @shutup="calledOnParent">
-                <h4>Active user Data:</h4>
-            </activeusers>
-            <activeusers name="Abhi" role="To play like a dependable player">
-                <h4>Active user Data:</h4>
-            </activeusers>
+            <router-link :to="{ path: '/'}" class="linker">Home</router-link>
+            <router-link :to="{ path: 'users'}">users</router-link>
+            <router-link :to="{ path: 'contact'}">Contact</router-link>
+            <router-view></router-view>
         </div>
     </main>
-    <template id="usertemplate">
-    <div>       
-        <slot></slot>
-        <p>{{ name }}</p>
-        <p>{{ role }}</p>
-        <hr>
-        <button v-on:click="logFromChild">Child</button>
-        <button v-on:click="passEvent">Pass Event</button>
-    </div>
-    </template>
     <script src="js/main.js"></script>
 </body>
 </html>
