@@ -3,16 +3,20 @@
         template: "<h2>This is home page</h2>"
     }
     const UsersPageComponent = {
-        template: "<h2>This is users page</h2>"
+        template: "<h2>This is Users page</h2>"
     }
     const ContactPageComponent = {
-        template: "<h2>This is contact page</h2>"
+        template: "<h2>This is Contact page</h2>"
+    }
+    const ErrorPageComponent = {
+        template: "<h2>This is Error page</h2>"
     }
 
     const routes =[
         { path: '/', name: 'home', component:HomePageComponent},
         { path: '/contact', name: 'contact', component:ContactPageComponent},
         { path: '/users', name: 'users', component:UsersPageComponent},
+        { path: '/*', name: 'error', component:ErrorPageComponent},
     ]
     const router = new VueRouter({
         routes
@@ -34,7 +38,8 @@
         components:{
             'homepagecomponent' : HomePageComponent,
             'userspagecomponent' : UsersPageComponent,
-            'contactpagecomponent' :ContactPageComponent
+            'contactpagecomponent' :ContactPageComponent,
+            'errorpagecomponent' : ErrorPageComponent
         },
         
         router
