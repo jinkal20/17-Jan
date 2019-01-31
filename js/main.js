@@ -1,15 +1,17 @@
 //import
 import LoginComponent from '../js/modules/LoginComponent.js';
+import UsersComponent from '../js/modules/UsersComponent.js';
 const routes =[
     { path: '/', redirect:{name: "login"}},
     { path: '/login', name: 'login', component:LoginComponent},
+    { path: '/users', name: 'users', component:UsersComponent}
     
 ]
 const router = new VueRouter({
     routes
 });
 //Vue instance
-const vn = new Vue({
+const vm = new Vue({
     data:{
         testmessage: "sup",
         authenticated: false,
@@ -21,6 +23,12 @@ const vn = new Vue({
     methods:{
         calledOnParent(){
             console.log("this method is from vue");
+        },
+        setAuthenticated(status){
+            this.authenticated = status;
+        },
+        logout(){
+            this.authenticated = false;
         }
     },
     created: function(){
@@ -31,8 +39,8 @@ const vn = new Vue({
 }).$mount("#app");
 
 router.beforeEach((to, from, next)=>{
-    console.log("roter guard fired");
-    if(VRFrameData.authenticated == false){
+    console.log("router guard fired");
+    if(vm.authenticated == false){
         next("/login");
     }
     else{

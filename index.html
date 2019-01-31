@@ -13,9 +13,9 @@
 <body>
     <main>
         <div id="app">
-            
+            <router-link v-if="authenticated" to="/login" v-on:click.native="logout()">Logout</router-link>
             <transition name="fade" mode="out-in">
-                <router-view/>
+                <router-view @authenticated="setAuthenticated"/>
             </transition>
         </div>
     </main>
