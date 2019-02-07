@@ -28,6 +28,7 @@ const vm = new Vue({
             this.authenticated = status;
         },
         logout(){
+            this.$router.push({ path: "/login"});
             this.authenticated = false;
         }
     },

@@ -1,0 +1,23 @@
+{
+  "name": "17-jan",
+  "version": "1.0.0",
+  "description": "Roku Flashback Vue components",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jinkal20/17-Jan.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jinkal20/17-Jan/issues"
+  },
+  "homepage": "https://github.com/jinkal20/17-Jan#readme",
+  "devDependencies": {
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^4.0.2"
+  }
+}
