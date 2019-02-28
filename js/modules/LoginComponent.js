@@ -42,7 +42,7 @@ export default{
 
                 const formData = new FormData();
 
-                formData.append("usename",this.input.username);
+                formData.append("username",this.input.username);
                 formData.append("password",this.input.password);
 
                 fetch(url,{
@@ -51,8 +51,10 @@ export default{
                 })
                     .then(res  => res.json())
                     .then(data =>{
-                        if(data =="Login Failed"){
+                        if(typeof data !== "object"){
                             console.log("login attempt failed");
+                            //pop a toast notifaction
+                            // let the user know something broke
                             return;
                         }else{
                             this.$emit("authenticated",true);

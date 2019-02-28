@@ -9,12 +9,10 @@ function getAll($tbl){
 
 	$runAll = $pdo->query($queryAll);
 
-	if($runAll){
-		return $runAll;
-	}else{
-		$error = 'There was a problem accessing this info';
-		return $error;
+	while($row = $runAll->fetch(PDO::FETCH_ASSOC)){
+		$result[] = $row;
 	}
+	return $result;
 }
 
 

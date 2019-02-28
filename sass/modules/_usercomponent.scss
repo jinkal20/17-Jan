@@ -1,3 +1,9 @@
 .user-message { margin: 0.5em 0 1em; }
+$roku-purple: #6C3C97;
 
-.card { cursor: pointer; }
+.card { cursor: pointer;
+    color: white;
+    background: $roku-purple;
+    margin-bottom: 1em;
+
+ }

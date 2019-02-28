@@ -2,18 +2,24 @@ import UserComponent from './UserComponent.js';
 
 export default{
     template:`
-        <div id="row">
+    <div class="container>"
+        <div class="row">
             <div class="col-sm-12">
-                <h1>You are on users page</h1>
+                <h1 class="user-message text-center">{{ message }}</h1>
             </div>
 
-            <user v-for="(user,index) in userlist" : liveuser="user" :key="index"></user>
+            <user v-for="(user,index) in userList" :liveuser="user" :key="index"></user>
         </div>
+    </div>
     `,
+
+    created: function(){
+        this.fetchAllUsers();
+    },
     
     data(){
         return{
-            message:"ywho is using Roku",
+            message:"Who's using Roku",
 
             userList:[]
 
@@ -23,8 +29,8 @@ export default{
         fetchAllUsers(){
             let url = `./admin/scripts/users.php?allUsers=true`;
             fetch(url)
-                .then(res=> res.json())
-                .then(data => {this.userList=data})
+                .then(res => res.json())
+                .then(data => {this.userList = data})
             .catch(function(error){
                 console.error(error);
             });

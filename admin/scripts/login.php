@@ -59,13 +59,13 @@ function login($username, $password, $ip){
 		}
 
 		if(empty($id)){
-			$message = 'Login Failed';
+			$message = 'Credentails dont match';
 			return $message;
 		}
 
 		redirect_to('index.php');
 	}else{
-		$message = 'Login Failed';
+		$message = 'user not found';
 		return $message;
 	}
 }
