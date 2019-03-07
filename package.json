@@ -1,23 +1,20 @@
 {
-  "name": "17-jan",
+  "name": "pan-tvr-sorcery",
   "version": "1.0.0",
-  "description": "Roku Flashback Vue components",
+  "description": "Admin login system with vue front end",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jinkal20/17-Jan.git"
-  },
-  "author": "",
+  "author": "TVR",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jinkal20/17-Jan/issues"
+  "dependencies": {
+    "bcrypt": "^3.0.3"
   },
-  "homepage": "https://github.com/jinkal20/17-Jan#readme",
   "devDependencies": {
+    "gulp": "^4.0.0",
     "gulp-concat": "^2.6.1",
+    "gulp-livereload": "^4.0.1",
     "gulp-sass": "^4.0.2"
   }
 }

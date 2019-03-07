@@ -1,14 +1,17 @@
-<?php 
-	session_start();
+<?php
 
-	function confirm_logged_in(){
-		if(!isset($_SESSION['user_id'])){
-			redirect_to('admin_login.php');
-		}
-	}
+session_start();
 
-	function logged_out(){
-		session_destroy();
+function confirm_logged_in() {
+// if user id exists
+  if (!isset($_SESSION['user_id'])) {
+    echo "Not Logged In";
+  }
+}
 
-		redirect_to('../admin_login.php');
-	}
+function logged_out() {
+    session_destroy();
+    redirect_to('../admin_login.php');
+}
+
+?>

@@ -1,12 +1,14 @@
 <?php 
-	require_once('config.php');
 
-	if(isset($_GET['caller_id'])){
-		$action = $_GET['caller_id'];
+    require_once('config.php');
 
-		switch($action){
-			case 'logout':
-				logged_out();
-				break;
-		}
-	}
+    if(isset($_GET['caller_id'])){
+
+        $action = $_GET['caller_id'];
+        switch ($action){
+
+            case 'logout':
+                logged_out();
+                break;
+        }
+    }

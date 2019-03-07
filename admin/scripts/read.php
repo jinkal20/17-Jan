@@ -1,58 +1,66 @@
 <?php 
 
-function getAll($tbl){
-	include('connect.php');
+    function getAll($tbl){
 
-	//TODO: fill the following variable with a SQL query
-	// that fetching all info from the given table $tbl
-	$queryAll = 'SELECT * FROM '.$tbl;
+        include('connect.php');
 
-	$runAll = $pdo->query($queryAll);
+        $queryAll = 'SELECT * FROM '.$tbl;
+        $runAll = $pdo->query($queryAll);
 
-	while($row = $runAll->fetch(PDO::FETCH_ASSOC)){
-		$result[] = $row;
-	}
-	return $result;
-}
+        $result = array();       
 
+        while($row = $runAll->fetch(PDO::FETCH_ASSOC)) {
+            $result[] = $row;
+        }
 
-function getSingle($tbl, $col, $value){
-	include('connect.php');
-	$querySingle = 'SELECT * FROM '.$tbl.' WHERE '.$col.' = '.$value;
+        return $result;
 
-	$runSingle = $pdo->query($querySingle);
-	if($runSingle){
-		return $runSingle;
-	}else{
-		$error = 'There was a problem';
-		return $error;
-	}
-}
+        }
+    
 
-function filterResults($tbl,$tbl_2,$tbl_3,$col,$col_2,$col_3,$filter){
-	include('connect.php');
-	/*
-	SELECT
-	    *
-	FROM
-	    tbl_movies AS a,
-	    tbl_genre AS b,
-	    tbl_mov_genre AS c
-	WHERE
-	    a.movies_id = c.movies_id AND b.genre_id = c.genre_id AND b.genre_name = "action"
-	*/
-	$filterQuery = 'SELECT * FROM '.$tbl.' as a, ';
-	$filterQuery.= $tbl_2.' as b, ';
-	$filterQuery.= $tbl_3.' as c ';
-	$filterQuery.= 'WHERE a.'.$col.' = c.'.$col;
-	$filterQuery.= ' AND b.'.$col_2.' = c.'.$col_2;
-	$filterQuery.= ' AND b.'.$col_3.'= "'. $filter.'"';
+    function getSingle($tbl, $col, $value){
 
-	$runQuery = $pdo->query($filterQuery);
-	if($runQuery){
-		return $runQuery;
-	}else{
-		$error = 'There was a problem';
-		return $error;
-	}
-}
+        include('connect.php');
+        $querySingle = 'SELECT * FROM '.$tbl.' WHERE '.$col.' = '.$value;
+        //var_dump($querySingle);
+        $runSingle = $pdo->query($querySingle);
+        if ($runSingle){
+            return $runSingle;
+        } else {
+
+            $error = 'There was a problem';
+            return $error;
+        }
+    }
+
+    function filterResults($tbl, $tbl2, $tbl3, $col, $col2, $col3, $filter) {
+        include('connect.php');
+        //TODO: write the SQL query to fetching everything 
+        // from the linking tables $tbl, $tbl_2, $tbl_3
+        $filterQuery = 'SELECT * FROM ' .$tbl.' as a, ';
+        $filterQuery.= $tbl2.' as b, ';
+        $filterQuery.= $tbl3.' as c ';
+        $filterQuery.= 'WHERE a.' .$col.' = c.'.$col;
+        $filterQuery.= ' AND b.' .$col2.' = c.'.$col2;
+        $filterQuery.= ' AND b.' .$col3.' = "'.$filter.'"';
+        //echo $filterQuery; 
+        //exit;
+        $runQuery = $pdo->query($filterQuery);
+        if($runQuery){
+
+                $results = array();
+
+                while($row = $runQuery->fetch(PDO::FETCH_ASSOC)) {
+                    $results[] = $row;
+                }
+
+                return $results;
+        }
+
+        else{
+            $error = 'There was a problem';
+            return $error;
+        }
+    }
+
+?>
